@@ -1,0 +1,143 @@
+/* Estilos para el contenedor principal de la página de inicio de sesión */
+/* Paleta de colores */
+:root {
+    --dark-moss-green: #315D0F;
+    --beige: #F8FDE9;
+    --platinum: #E4E4E4;
+    --dark-moss-green-2: #355621;
+    --yellow-green: #A5C359;
+  }
+  
+
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .login-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+  }
+  
+  .left-column {
+    background-color: var(--dark-moss-green);
+    color: var(--beige);
+    padding: 40px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+  }
+  
+  .left-column h1 {
+    font-size: 3.5em; 
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: none;
+  }
+  
+  .left-column h2 {
+    font-size: 1.8em; 
+    margin-bottom: 70px;
+    color: var(--yellow-green);
+    text-align: center; 
+    width: 80%; 
+    max-width: none;
+  }
+  
+  .left-column form {
+    display: flex;
+    flex-direction: column;
+    width: 80%; 
+    max-width: 700px; 
+    align-items: center;
+  }
+  
+  .left-column .input-group {
+    display: flex;
+    flex-direction: column; /* Coloca el h3 encima del input */
+    width: 100%; 
+    margin-bottom: 20px; 
+  }
+  
+  .left-column h3 {
+    font-size: 1.5em; 
+    margin-bottom: 5px;
+    color: var(--beige);
+    text-align: left; 
+    width: 100%; 
+  }
+  
+  .left-column input {
+    padding: 15px;
+    border: none;
+    font-size: 1.4em;
+    color: var(--dark-moss-green-2);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .left-column button.create-account-btn {
+    background-color: var(--yellow-green);
+    color: var(--dark-moss-green);
+    padding: 18px 30px; 
+    border: none;
+    border-radius: 6px;
+    font-size: 1.6em; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 500px; 
+  }
+  
+  .left-column button.create-account-btn:hover {
+    background-color: var(--beige);
+    color: var(--dark-moss-green);
+  }
+  
+  .right-column {
+    background-color: var(--beige);
+    color: var(--dark-moss-green);
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%;
+    text-align: center;
+  }
+  
+  .right-column h1 {
+    font-size: 2.8em; 
+    margin-bottom: 15px;
+  }
+  
+  .right-column h2 {
+    font-size: 1.5em; 
+    margin-bottom: 25px;
+    color: var(--dark-moss-green-2);
+  }
+  
+  .right-column button.login-btn {
+    background-color: var(--yellow-green);
+    color: var(--dark-moss-green);
+    padding: 18px 35px; 
+    border: none;
+    border-radius: 6px;
+    font-size: 1.6em; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .right-column button.login-btn:hover {
+    background-color: var(--dark-moss-green-2);
+    color: var(--beige);
+  }
