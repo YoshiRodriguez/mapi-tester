@@ -7,9 +7,12 @@ const PaymentBrickComponent = () => {
     const initializeBrick = async () => {
       if (!window.MercadoPago) return;
 
-      const mp = new window.MercadoPago("TEST-8a55c5f2-e6f7-43e4-abbb-b328d5a4e5d0", {
-        locale: "es",
-      });
+      const mp = new window.MercadoPago(
+        "TEST-8a55c5f2-e6f7-43e4-abbb-b328d5a4e5d0",
+        {
+          locale: "es",
+        }
+      );
 
       const bricksBuilder = mp.bricks();
 
@@ -19,57 +22,61 @@ const PaymentBrickComponent = () => {
       }
 
       try {
-        const controller = await bricksBuilder.create("payment", "paymentBrick_container", {
-          initialization: {
-            amount: 10000,
-            preferenceId: "123456789-test-preferenceid",
-            payer: {
-              firstName: "Juan",
-              lastName: "Pérez",
-              email: "correo@ejemplo.com",
-            },
-          },
-          customization: {
-            visual: {
-              style: {
-                theme: "default",  // o "dark" si prefieres un estilo oscuro
-                customVariables: {
-                  background: "#315D0F", // Dark Moss Green
-                  baseColor: "#315D0F", // Color base de la paleta
-                  borderColor: "#355621", // Dark Moss Green 2 (para bordes)
-                  inputBackgroundColor: "#F8FDE9", // Beige para los campos de entrada
-                  inputBorderColor: "#E4E4E4", // Platinum para los bordes de entrada
-                  labelColor: "#355621", // Dark Moss Green 2 para las etiquetas
-                  errorColor: "#FF0000", // Color rojo para los errores (puedes personalizarlo)
-                  fontSize: "16px",
-                  fontFamily: "'Segoe UI', sans-serif",
-                },
+        const controller = await bricksBuilder.create(
+          "payment",
+          "paymentBrick_container",
+          {
+            initialization: {
+              amount: 10000,
+              preferenceId: "123456789-test-preferenceid",
+              payer: {
+                firstName: "Juan",
+                lastName: "Pérez",
+                email: "correo@ejemplo.com",
               },
             },
-            paymentMethods: {
-              creditCard: "all",
-              debitCard: "all",
-              ticket: "all",
-              bankTransfer: "all",
-              atm: "all",
-              onboarding_credits: "all",
-              wallet_purchase: "all",
-              maxInstallments: 6,
+            customization: {
+              visual: {
+                style: {
+                  theme: "default", // o "dark" si prefieres un estilo oscuro
+                  customVariables: {
+                    background: "#315D0F", // Dark Moss Green
+                    baseColor: "#315D0F", // Color base de la paleta
+                    borderColor: "#355621", // Dark Moss Green 2 (para bordes)
+                    inputBackgroundColor: "#F8FDE9", // Beige para los campos de entrada
+                    inputBorderColor: "#E4E4E4", // Platinum para los bordes de entrada
+                    labelColor: "#355621", // Dark Moss Green 2 para las etiquetas
+                    errorColor: "#FF0000", // Color rojo para los errores (puedes personalizarlo)
+                    fontSize: "16px",
+                    fontFamily: "'Segoe UI', sans-serif",
+                  },
+                },
+              },
+              paymentMethods: {
+                creditCard: "all",
+                debitCard: "all",
+                ticket: "all",
+                bankTransfer: "all",
+                atm: "all",
+                onboarding_credits: "all",
+                wallet_purchase: "all",
+                maxInstallments: 6,
+              },
             },
-          },
-          callbacks: {
-            onReady: () => {
-              console.log("Brick listo");
+            callbacks: {
+              onReady: () => {
+                console.log("Brick listo");
+              },
+              onSubmit: ({ selectedPaymentMethod, formData }) => {
+                console.log("Simulación de envío:", formData);
+                return Promise.resolve();
+              },
+              onError: (error) => {
+                console.error("Error en el brick:", error);
+              },
             },
-            onSubmit: ({ selectedPaymentMethod, formData }) => {
-              console.log("Simulación de envío:", formData);
-              return Promise.resolve();
-            },
-            onError: (error) => {
-              console.error("Error en el brick:", error);
-            },
-          },
-        });
+          }
+        );
 
         controllerRef.current = controller;
       } catch (err) {

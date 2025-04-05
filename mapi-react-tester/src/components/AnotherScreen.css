@@ -1,0 +1,152 @@
+/* AnotherScreen.css */
+:root {
+  --dark-moss-green: #315d0f;
+  --beige: #f8fde9;
+  --platinum: #e4e4e4;
+  --dark-moss-green-2: #355621;
+  --yellow-green: #a5c359;
+}
+
+.another-screen-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.left-column-alt {
+  background-color: var(--beige); /* Fondo claro */
+  color: var(--dark-moss-green);
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.left-column-alt h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.left-column-alt h2 {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: var(--dark-moss-green-2);
+}
+
+.left-column-alt button.register-btn {
+  background-color: var(--dark-moss-green);
+  color: var(--beige);
+  padding: 18px 35px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.left-column-alt button.register-btn:hover {
+  background-color: var(--yellow-green);
+  color: var(--beige);
+}
+
+.right-column-alt {
+  background-color: var(--dark-moss-green);
+  color: var(--beige);
+  padding: 40px;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.right-column-alt h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: none;
+}
+
+.right-column-alt h2 {
+  font-size: 1.8em;
+  margin-bottom: 70px;
+  color: var(--yellow-green);
+  text-align: center;
+  width: 80%;
+  max-width: none;
+}
+
+.right-column-alt form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 600px;
+  align-items: center;
+}
+
+.right-column-alt .input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.right-column-alt h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: var(--beige);
+  text-align: left;
+}
+
+.right-column-alt input {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  color: var(--dark-moss-green-2);
+}
+
+.right-column-alt input::placeholder {
+  color: var(--dark-moss-green-2);
+  opacity: 0.7;
+}
+
+.right-column-alt .forgot-password {
+  font-size: 1.1em;
+  color: var(--yellow-green);
+  text-align: right;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.right-column-alt .forgot-password:hover {
+  text-decoration: underline;
+}
+
+.right-column-alt button.login-btn-alt {
+  background-color: var(--yellow-green);
+  color: var(--dark-moss-green);
+  padding: 18px 35px;
+  margin-top: 50px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+}
+
+.right-column-alt button.login-btn-alt:hover {
+  background-color: var(--beige);
+  color: var(--dark-moss-green);
+}

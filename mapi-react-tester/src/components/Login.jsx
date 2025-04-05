@@ -1,18 +1,18 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';  // Cambié useHistory por useNavigate
-import './Login.css'; // Importa el archivo CSS
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
-  const navigate = useNavigate();  // Usé useNavigate en vez de useHistory
+  const navigate = useNavigate();
 
   const handleCreateAccount = () => {
     // Redirigir al Checkout Brick
-    navigate('/checkout');  // Usé navigate en vez de history.push
+    navigate("/checkout");
   };
 
   const handleLogin = () => {
     // Redirigir al Checkout Brick
-    navigate('/checkout');  // Igualmente con navigate
+    navigate("/another-screen");
   };
 
   return (
@@ -21,21 +21,25 @@ const Login = () => {
         <h1>Bienvenido a Nutri-AS</h1>
         <h2>¿Te gustaría crear tu cuenta?</h2>
         <form>
-            <div className="input-group">
-                <h3>Correo Electrónico</h3>
-                <input type="email" />
-            </div>
-            <div className="input-group">
-                <h3>Contraseña</h3>
-                <input type="password" />
-            </div>
-            <div className="input-group">
-                <h3>Celular</h3>
-                <input type="text" />
-            </div>
-            <button type="button" className="create-account-btn" onClick={handleCreateAccount}>
-                Crear Cuenta
-            </button>
+          <div className="input-group">
+            <h3>Correo Electrónico</h3>
+            <input type="email" />
+          </div>
+          <div className="input-group">
+            <h3>Contraseña</h3>
+            <input type="password" />
+          </div>
+          <div className="input-group">
+            <h3>Celular</h3>
+            <input type="text" />
+          </div>
+          <button
+            type="button"
+            className="create-account-btn"
+            onClick={handleCreateAccount}
+          >
+            Crear Cuenta
+          </button>
         </form>
       </div>
       <div className="right-column">
@@ -50,5 +54,3 @@ const Login = () => {
 };
 
 export default Login;
-// Asegúrate de que el CSS esté en el mismo directorio o ajusta la ruta según sea necesario
-// src/components/Login.css
