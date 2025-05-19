@@ -1,0 +1,77 @@
+/* src\components\Banner.css */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.main-banner {
+    /* background-color: var(--yellow-green); */
+    color: var(--dark-moss-green);
+    height: 35vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto 1fr;
+    padding: 30px;
+    position: relative;
+    box-sizing: border-box;
+    align-items: start;
+    justify-items: center;
+    /* Centra los items horizontalmente por defecto */
+    border: 1px solid var(--dark-moss-green);
+}
+
+.banner-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    /* Se ubica en la primera fila */
+}
+
+.main-banner .banner-subtitle {
+    font-size: 6em;
+    font-weight: bold;
+    font-family: 'Great Vibes', cursive;
+    color: var(--yellow-green);
+    margin-bottom: -10px;
+}
+
+
+.banner-organic {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: -5px;
+    /* Se ubica en la tercera fila */
+}
+
+.banner-website {
+    font-size: 1em;
+    color: var(--yellow-green);
+    /* Se ubica en la cuarta fila */
+}
+
+.profile-info {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    display: flex;
+    align-items: flex-start;
+    /* Alinea los elementos internos al inicio (verticalmente en este caso) */
+}
+
+.profile-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Alinea los elementos internos a la izquierda */
+}
+
+.profile-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--platinum);
+    margin-bottom: 5px;
+}
+
+.main-banner .profile-name {
+    font-size: 1.5em;
+    margin-top: 0;
+    font-weight: bold;
+}

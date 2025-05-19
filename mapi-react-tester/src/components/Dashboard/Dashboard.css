@@ -1,0 +1,100 @@
+/* src\components\Dashboard\Dashboard.css */
+:root {
+    --dark-moss-green: #315d0f;
+    --beige: #f8fde9;
+    --platinum: #e4e4e4;
+    --dark-moss-green-2: #355621;
+    --yellow-green: #a5c359;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--beige);
+  color: var(--dark-moss-green);
+}
+
+.dashboard-sidebar {
+    background-color: var(--dark-moss-green);
+    color: var(--beige);
+    width: 15%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.dashboard-sidebar h1 {
+    font-size: 2.8em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    /* Reducimos el margen inferior del título */
+}
+
+.dashboard-navigation {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    /* Eliminamos el margen superior de la lista */
+    margin-bottom: auto;
+    /* Empuja la lista hacia arriba */
+    width: 100%;
+}
+
+.dashboard-navigation li {
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-align: left;
+    padding: 10px 0;
+    margin-bottom: -10px;
+    /* Reducimos el espacio entre los items */
+}
+
+.dashboard-navigation li:last-child {
+    margin-bottom: 0;
+    /* Aseguramos que el último elemento no tenga margen inferior extra */
+}
+
+.dashboard-navigation li:hover {
+    color: var(--yellow-green);
+}
+
+.dashboard-sidebar-bottom {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.dashboard-sidebar-bottom div {
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-align: left;
+    padding: 10px 0;
+}
+
+.dashboard-sidebar-bottom div:hover {
+    color: var(--yellow-green);
+}
+
+.cerrar-sesion {
+    margin-top: 5px;
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 30px;
+    text-align: center;
+    /* Temporal para visualizar el centro */
+}
+
+.dashboard-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.dashboard-content p {
+    font-size: 1.2em;
+}

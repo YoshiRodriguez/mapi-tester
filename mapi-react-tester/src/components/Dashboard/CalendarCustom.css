@@ -1,0 +1,115 @@
+/* src/components/CalendarCustom.css */
+.calendar-container {
+  flex-grow: 1; /* Ocupa el espacio vertical restante */
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Centra el calendario horizontalmente */
+  align-items: center; /* Centra el calendario verticalmente (opcional, depende del diseño) */
+  box-sizing: border-box;
+}
+
+.react-calendar {
+  width: 100%; /* El calendario ocupa todo el ancho de su contenedor */
+  max-width: 400px; /* Ancho máximo para que no se extienda demasiado */
+  background: var(--beige);
+  border: 1px solid var(--dark-moss-green);
+  font-family: sans-serif;
+  line-height: 1.125em;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  color: var(--dark-moss-green);
+  font-size: 1em;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+  color: #999;
+  cursor: default;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: var(--yellow-green);
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: var(--dark-moss-green-2);
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 0.5em;
+}
+
+.react-calendar__tile {
+  max-width: initial !important;
+  background: none;
+  text-align: center;
+  padding: 0.8em 0.5em;
+  border: none;
+  font-size: 0.9em;
+  color: var(--dark-moss-green);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+  color: #999;
+  cursor: default;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: var(--platinum);
+}
+
+.react-calendar__tile--now {
+  background: var(--yellow-green);
+  font-weight: bold;
+  color: var(--dark-moss-green);
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: var(--yellow-green);
+}
+
+.react-calendar__tile--active {
+  background: var(--dark-moss-green);
+  color: var(--beige);
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: var(--dark-moss-green);
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--dark-moss-green-2);
+}

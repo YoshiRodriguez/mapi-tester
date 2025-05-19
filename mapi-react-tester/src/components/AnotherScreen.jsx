@@ -9,7 +9,7 @@ const AnotherScreen = () => {
     navigate("/checkout");
   };
 
-  const handleLogin = () => {
+  const handleStart = () => {
     navigate("/checkout");
   };
 
@@ -42,7 +42,7 @@ const AnotherScreen = () => {
           <p className="forgot-password" onClick={handleForgotPassword}>
             ¿Olvidaste tu Contraseña?
           </p>
-          <button type="button" className="login-btn-alt" onClick={handleLogin}>
+          <button type="button" className="start-btn-alt" onClick={handleStart}>
             Iniciar Sesión
           </button>
         </form>

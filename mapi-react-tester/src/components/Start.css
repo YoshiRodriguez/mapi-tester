@@ -13,8 +13,9 @@ body {
   overflow: hidden;
 }
 
-.login-container {
+.start-container {
   display: flex;
+  flex-direction: row; /* Cambia a row para mostrar las columnas horizontalmente */
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -124,7 +125,7 @@ body {
   color: var(--dark-moss-green-2);
 }
 
-.right-column button.login-btn {
+.right-column button.start-btn {
   background-color: var(--yellow-green);
   color: var(--dark-moss-green);
   padding: 15px 35px;
@@ -135,7 +136,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.right-column button.login-btn:hover {
+.right-column button.start-btn:hover {
   background-color: var(--dark-moss-green-2);
   color: var(--beige);
 }
