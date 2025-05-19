@@ -1,20 +1,22 @@
 /* src/components/CalendarCustom.css */
 .calendar-container {
-  flex-grow: 1; /* Ocupa el espacio vertical restante */
-  padding: 20px;
+  flex-grow: 1; /* Ocupa el espacio vertical restante dentro de dashboard-content */
   display: flex;
-  justify-content: center; /* Centra el calendario horizontalmente */
-  align-items: center; /* Centra el calendario verticalmente (opcional, depende del diseño) */
+  justify-content: stretch; /* El calendario se estira horizontalmente */
+  align-items: stretch; /* El calendario se estira verticalmente dentro del espacio restante */
   box-sizing: border-box;
+  overflow: auto; /* Añade scroll si el contenido del calendario es muy grande */
 }
 
 .react-calendar {
-  width: 100%; /* El calendario ocupa todo el ancho de su contenedor */
-  max-width: 400px; /* Ancho máximo para que no se extienda demasiado */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: 100%; /* Ocupa toda la altura del contenedor */
   background: var(--beige);
   border: 1px solid var(--dark-moss-green);
   font-family: sans-serif;
   line-height: 1.125em;
+  display: flex;
+  flex-direction: column; /* Para organizar los elementos internos del calendario */
 }
 
 .react-calendar__navigation {
@@ -44,33 +46,47 @@
   background-color: var(--yellow-green);
 }
 
+.react-calendar__month-view {
+  flex-grow: 1; /* Permite que la vista del mes ocupe el espacio restante */
+  display: flex;
+  flex-direction: column;
+}
+
 .react-calendar__month-view__weekdays {
   text-align: center;
   font-weight: bold;
   font-size: 0.9em;
   color: var(--dark-moss-green-2);
+  display: flex;
 }
 
 .react-calendar__month-view__weekdays__weekday {
   padding: 0.5em;
+  flex-grow: 1;
+  flex-basis: 0; /* Evita el encogimiento desigual */
 }
 
 .react-calendar__month-view__days {
   display: grid !important;
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 0.5em;
+  flex-grow: 1; /* Permite que los días ocupen el espacio restante */
 }
 
-.react-calendar__tile {
+.calendar-container .react-calendar .react-calendar__month-view .react-calendar__tile {
   max-width: initial !important;
   background: none;
   text-align: center;
   padding: 0.8em 0.5em;
-  border: none;
+  border: 1px solid var(--dark-moss-green-2); /* Añade un borde gris claro */
   font-size: 0.9em;
   color: var(--dark-moss-green);
   cursor: pointer;
   transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px; /* Asegura una altura mínima para las celdas */
 }
 
 .react-calendar__tile:disabled {
