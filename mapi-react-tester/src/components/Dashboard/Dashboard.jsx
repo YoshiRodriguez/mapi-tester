@@ -6,9 +6,19 @@ import './Banner.css';
 import './ConsultationBar.css';
 import ModalEmergente from './ModalEmergente'; // <-- NUEVO
 
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Dashboard.css';
+import './Banner.css';
+import './ConsultationBar.css';
+import 'react-calendar/dist/Calendar.css';
+import './CalendarCustom.css';
+import Calendar from 'react-calendar';
 const Dashboard = () => {
     const navigate = useNavigate();
+    const [date, setDate] = useState(new Date());
     const [mostrarModal, setMostrarModal] = useState(false);
+
 
     const handleLogout = () => {
         navigate('/');
@@ -24,11 +34,17 @@ const Dashboard = () => {
 
     const cerrarModal = () => setMostrarModal(false);
 
+    const onChange = date => {
+        setDate(date);
+        console.log('Nueva fecha seleccionada:', date);
+    };
+
     const currentDate = new Date();
     const monthYear = currentDate.toLocaleString('es-MX', { month: 'long', year: 'numeric' }).toUpperCase();
-
     return (
-        <div className="dashboard-container">
+        <div
+            className="dashboard-container"
+        >
             <div className="dashboard-sidebar">
                 <h1>Inicio</h1>
                 <ul className="dashboard-navigation">
@@ -44,7 +60,6 @@ const Dashboard = () => {
                     <div className="cerrar-sesion" onClick={handleLogout}>Cerrar Sesión</div>
                 </div>
             </div>
-
             <div className="dashboard-content">
                 <div className="main-banner">
                     <div className="banner-text">
@@ -62,12 +77,20 @@ const Dashboard = () => {
                 </div>
                 <div className="consultation-bar">
                     <button className="new-consultation-btn" onClick={handleGenerarConsulta}>Generar Nueva Consulta</button>
-                    <div className="month-year">{monthYear}</div>
+                    {/* <div className="month-year">{monthYear}</div> */}
                     <button className="add-patient-btn" onClick={handleAltaPaciente}>Alta de Paciente</button>
                 </div>
+                <div className="calendar-container">
+                    <Calendar
+                        onChange={onChange}
+                        value={date}
+                        locale="es-MX"
+                    />
+                </div>
+                {/* Aquí iría el resto del contenido principal si lo hubiera */}
             </div>
-
             <ModalEmergente mostrar={mostrarModal} cerrar={cerrarModal} />
+
         </div>
     );
 };
