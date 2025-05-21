@@ -1,46 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import colorfulFoodPattern from './img/vecteezy_colorful-food-pattern_420342.svg';
-import './Dashboard.css'; // Importa el archivo CSS para el Dashboard
-import './Banner.css'; // Importa el CSS para el Banner
-import './ConsultationBar.css'; // Importa el CSS para la nueva barra
+import './Dashboard.css';
+import './Banner.css';
+import './ConsultationBar.css';
+import ModalEmergente from './ModalEmergente'; // <-- NUEVO
 
 const Dashboard = () => {
     const navigate = useNavigate();
+    const [mostrarModal, setMostrarModal] = useState(false);
 
     const handleLogout = () => {
-        navigate('/'); // Redirige a la página de inicio
+        navigate('/');
     };
 
     const handleGenerarConsulta = () => {
-        // Aquí iría la lógica para generar una nueva consulta
-        console.log('Generar Nueva Consulta');
+        setMostrarModal(true);
     };
 
     const handleAltaPaciente = () => {
-        // Aquí iría la lógica para dar de alta a un paciente
-        console.log('Alta de Paciente');
+        setMostrarModal(true);
     };
+
+    const cerrarModal = () => setMostrarModal(false);
 
     const currentDate = new Date();
     const monthYear = currentDate.toLocaleString('es-MX', { month: 'long', year: 'numeric' }).toUpperCase();
 
-
     return (
-        <div className="dashboard-container"
-            // style={{
-            //     display: 'flex',
-            //     minHeight: '100vh',
-            //     backgroundColor: 'var(--beige)',
-            //     color: 'var(--dark-moss-green)',
-            //     backgroundImage: `url(${colorfulFoodPattern})`,
-            //     backgroundSize: 'cover', // Cubre todo el contenedor
-            //     backgroundRepeat: 'no-repeat', // No se repite
-            //     backgroundPosition: 'center', // Centra la imagen
-            //     overflow: 'hidden', // Evita barras de desplazamiento si la imagen es muy grande
-            // }}
-            >
-
+        <div className="dashboard-container">
             <div className="dashboard-sidebar">
                 <h1>Inicio</h1>
                 <ul className="dashboard-navigation">
@@ -79,7 +67,7 @@ const Dashboard = () => {
                 </div>
             </div>
 
-
+            <ModalEmergente mostrar={mostrarModal} cerrar={cerrarModal} />
         </div>
     );
 };
