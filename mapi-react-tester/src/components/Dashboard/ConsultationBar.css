@@ -4,7 +4,7 @@
   justify-content: space-between; /* Espacia los elementos horizontalmente */
   align-items: center; /* Centra los elementos verticalmente */
   height: 15vh; /* Ocupa el 15% de la altura del viewport */
-  padding: 0 30px; /* Añade un poco de espacio a los lados */
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
   box-sizing: border-box; /* Incluye el padding en el alto */
 }
 

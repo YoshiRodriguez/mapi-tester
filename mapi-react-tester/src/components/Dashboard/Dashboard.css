@@ -1,13 +1,14 @@
 /* src\components\Dashboard\Dashboard.css */
 .dashboard-container {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--beige);
   color: var(--dark-moss-green);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  overflow: hidden; /* Importante para que la barra de desplazamiento del contenido funcione correctamente */
+  overflow: hidden;
+  /* Importante para que la barra de desplazamiento del contenido funcione correctamente */
 }
 
 .dashboard-sidebar {
@@ -46,10 +47,27 @@
 }
 
 .dashboard-content {
+  height: 100%;
+  /* ✅ Asegura que los hijos puedan ocupar el espacio completo */
   flex: 1;
   padding: 30px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  overflow-y: auto; /* Aseguramos que la barra de desplazamiento vertical aparezca si es necesario */
+  overflow-y: auto;
+  /* Aseguramos que la barra de desplazamiento vertical aparezca si es necesario */
+}
+
+.calendar-wrapper {
+  flex-grow: 1;        /* Ocupa el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Opcional: centra el calendario */
+}
+
+.calendar-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

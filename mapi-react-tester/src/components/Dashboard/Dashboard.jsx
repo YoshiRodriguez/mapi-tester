@@ -4,21 +4,15 @@ import colorfulFoodPattern from './img/vecteezy_colorful-food-pattern_420342.svg
 import './Dashboard.css';
 import './Banner.css';
 import './ConsultationBar.css';
-import ModalEmergente from './ModalEmergente'; // <-- NUEVO
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Dashboard.css';
-import './Banner.css';
-import './ConsultationBar.css';
 import 'react-calendar/dist/Calendar.css';
 import './CalendarCustom.css';
 import Calendar from 'react-calendar';
+import ModalEmergente from './ModalEmergente'; // <-- Componente de modal
+
 const Dashboard = () => {
     const navigate = useNavigate();
     const [date, setDate] = useState(new Date());
-    const [mostrarModal, setMostrarModal] = useState(false);
-
+    const [mostrarModal, setMostrarModal] = useState(false); // <-- Faltaba esta línea
 
     const handleLogout = () => {
         navigate('/');
@@ -41,10 +35,9 @@ const Dashboard = () => {
 
     const currentDate = new Date();
     const monthYear = currentDate.toLocaleString('es-MX', { month: 'long', year: 'numeric' }).toUpperCase();
+
     return (
-        <div
-            className="dashboard-container"
-        >
+        <div className="dashboard-container">
             <div className="dashboard-sidebar">
                 <h1>Inicio</h1>
                 <ul className="dashboard-navigation">
@@ -60,6 +53,7 @@ const Dashboard = () => {
                     <div className="cerrar-sesion" onClick={handleLogout}>Cerrar Sesión</div>
                 </div>
             </div>
+
             <div className="dashboard-content">
                 <div className="main-banner">
                     <div className="banner-text">
@@ -75,11 +69,13 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className="consultation-bar">
                     <button className="new-consultation-btn" onClick={handleGenerarConsulta}>Generar Nueva Consulta</button>
                     {/* <div className="month-year">{monthYear}</div> */}
                     <button className="add-patient-btn" onClick={handleAltaPaciente}>Alta de Paciente</button>
                 </div>
+
                 <div className="calendar-container">
                     <Calendar
                         onChange={onChange}
@@ -87,10 +83,10 @@ const Dashboard = () => {
                         locale="es-MX"
                     />
                 </div>
-                {/* Aquí iría el resto del contenido principal si lo hubiera */}
-            </div>
-            <ModalEmergente mostrar={mostrarModal} cerrar={cerrarModal} />
 
+                {/* Modal emergente */}
+                <ModalEmergente mostrar={mostrarModal} cerrar={cerrarModal} />
+            </div>
         </div>
     );
 };

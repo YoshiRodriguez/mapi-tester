@@ -1,43 +1,62 @@
-/* ModalEmergente.css */
-.modal-backdrop {
+.modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     z-index: 1000;
 }
 
-.modal-content {
-    background-color: var(--beige);
-    color: var(--dark-moss-green);
-    padding: 2em;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+.modal-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.3s ease;
 }
 
-.modal-content h2 {
-    margin-bottom: 0.5em;
-}
-
-.modal-content button {
-    margin-top: 1em;
-    padding: 0.5em 1.5em;
+.modal-close-button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
     background-color: var(--dark-moss-green);
-    color: var(--beige);
+    color: #f6f4ec;
+    /* beige claro para contraste */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.modal-content button:hover {
+.modal-close-button:hover {
     background-color: var(--yellow-green);
+    /* transform: scale(1.); */
+}
+
+.modal-close-button:active {
+    background-color: var(--dark-moss-green);
+    /* aún más oscuro */
+    transform: scale(0.98);
+}
+
+/* Animación opcional */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

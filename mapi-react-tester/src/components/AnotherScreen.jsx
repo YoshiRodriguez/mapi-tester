@@ -10,7 +10,7 @@ const AnotherScreen = () => {
   };
 
   const handleStart = () => {
-    navigate("/checkout");
+    navigate("/dashboard");
   };
 
   const handleForgotPassword = () => {

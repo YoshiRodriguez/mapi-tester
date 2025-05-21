@@ -12,7 +12,7 @@ const Start = () => {
 
   const handleStart = () => {
     // Redirigir al Dashboard
-    navigate('/dashboard'); // Cambia la ruta aquí
+    navigate('/another-screen'); // Cambia la ruta aquí
   };
 
   return (
