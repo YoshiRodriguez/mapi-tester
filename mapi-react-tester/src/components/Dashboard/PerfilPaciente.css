@@ -1,0 +1,71 @@
+.perfil-paciente-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.perfil-titulo {
+  font-size: 2rem;
+  color: var(--dark-moss-green);
+  margin-bottom: 1rem;
+}
+
+.perfil-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.perfil-foto-placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: var(--platinum);
+  border-radius: 50%;
+}
+
+.perfil-nombre {
+  font-size: 1.8rem;
+  color: var(--dark-moss-green-2);
+}
+
+.perfil-botones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.perfil-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--yellow-green);
+  color: white;
+  border: none;
+  padding: 2rem; /* más espacio */
+  border-radius: 1rem;
+  font-size: 1.3rem; /* texto más grande */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.perfil-btn svg {
+  font-size: 3rem; /* íconos más grandes */
+  margin-bottom: 0.75rem;
+}
+
+
+.perfil-btn:hover {
+  transform: scale(1.05);
+}
+
+.volver-btn {
+  background-color: var(--dark-moss-green);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+}

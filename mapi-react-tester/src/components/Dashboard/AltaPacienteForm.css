@@ -1,0 +1,99 @@
+/* AltaPacienteForm.css */
+.alta-paciente-container {
+  background-color: var(--beige);
+  color: var(--dark-moss-green);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.alta-paciente-container h2 {
+  color: var(--dark-moss-green-2);
+  border-bottom: 2px solid var(--yellow-green);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.form-grid input,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--platinum);
+  border-radius: 5px;
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-grid label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.manifestacion-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.manifestacion-table th,
+.manifestacion-table td {
+  border: 1px solid var(--platinum);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.manifestacion-table th {
+  background-color: var(--yellow-green);
+  color: white;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+button[type="submit"] {
+  background-color: var(--dark-moss-green);
+  color: white;
+}
+
+button[type="button"] {
+  background-color: var(--platinum);
+  color: var(--dark-moss-green);
+}

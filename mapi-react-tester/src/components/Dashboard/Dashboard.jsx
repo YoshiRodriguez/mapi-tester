@@ -8,11 +8,19 @@ import 'react-calendar/dist/Calendar.css';
 import './CalendarCustom.css';
 import Calendar from 'react-calendar';
 import ModalEmergente from './ModalEmergente'; // <-- Componente de modal
+import Pacientes from './Pacientes.jsx';
+import PerfilPaciente from './PerfilPaciente';
+import AltaPacienteForm from './AltaPacienteForm';
+
+
+console.log("¿Qué es Pacientes?", Pacientes);
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const [date, setDate] = useState(new Date());
-    const [mostrarModal, setMostrarModal] = useState(false); // <-- Faltaba esta línea
+    const [mostrarModal, setMostrarModal] = useState(false);
+    const [vistaActiva, setVistaActiva] = useState("dashboard");
+    const [pacienteSeleccionado, setPacienteSeleccionado] = useState(null);
 
     const handleLogout = () => {
         navigate('/');
@@ -23,7 +31,7 @@ const Dashboard = () => {
     };
 
     const handleAltaPaciente = () => {
-        setMostrarModal(true);
+        setVistaActiva("altaPaciente");
     };
 
     const cerrarModal = () => setMostrarModal(false);
@@ -32,7 +40,7 @@ const Dashboard = () => {
         setDate(date);
         console.log('Nueva fecha seleccionada:', date);
     };
-
+ 
     const currentDate = new Date();
     const monthYear = currentDate.toLocaleString('es-MX', { month: 'long', year: 'numeric' }).toUpperCase();
 
@@ -41,12 +49,13 @@ const Dashboard = () => {
             <div className="dashboard-sidebar">
                 <h1>Inicio</h1>
                 <ul className="dashboard-navigation">
-                    <li>Mis Pacientes</li>
-                    <li>SMAE</li>
-                    <li>Material De Apoyo</li>
-                    <li>Dietas Automáticas</li>
-                    <li>Cálculo Dietético</li>
-                    <li>Creación de Menú</li>
+                    <li onClick={() => setVistaActiva("dashboard")}>Dashboard</li>
+                    <li onClick={() => setVistaActiva("pacientes")}>Mis Pacientes</li>
+                    <li onClick={() => setVistaActiva("smae")}>SMAE</li>
+                    <li onClick={() => setVistaActiva("material")}>Material De Apoyo</li>
+                    <li onClick={() => setVistaActiva("dietas")}>Dietas Automáticas</li>
+                    <li onClick={() => setVistaActiva("calculo")}>Cálculo Dietético</li>
+                    <li onClick={() => setVistaActiva("menu")}>Creación de Menú</li>
                 </ul>
                 <div className="dashboard-sidebar-bottom">
                     <div className="configuracion">Configuración</div>
@@ -55,38 +64,63 @@ const Dashboard = () => {
             </div>
 
             <div className="dashboard-content">
-                <div className="main-banner">
-                    <div className="banner-text">
-                        <h2 className="banner-title">SALAD</h2>
-                        <h1 className="banner-subtitle">FreshFood</h1>
-                        <p className="banner-organic">100% Organic Products</p>
-                        <p className="banner-website">www.saladfood.com</p>
-                    </div>
-                    <div className="profile-info">
-                        <div className="profile-column">
-                            <div className="profile-placeholder"></div>
-                            <p className="profile-name">Nutrióloga</p>
+                {vistaActiva === "dashboard" && (
+                    <>
+                        <div className="main-banner">
+                            <div className="banner-text">
+                                <h2 className="banner-title">SALAD</h2>
+                                <h1 className="banner-subtitle">FreshFood</h1>
+                                <p className="banner-organic">100% Organic Products</p>
+                                <p className="banner-website">www.saladfood.com</p>
+                            </div>
+                            <div className="profile-info">
+                                <div className="profile-column">
+                                    <div className="profile-placeholder"></div>
+                                    <p className="profile-name">Nutrióloga</p>
+                                </div>
+                            </div>
                         </div>
+
+                        <div className="consultation-bar">
+                            <button className="new-consultation-btn" onClick={handleGenerarConsulta}>
+                                Generar Nueva Consulta
+                            </button>
+                            <button className="add-patient-btn" onClick={handleAltaPaciente}>
+                                Alta de Paciente
+                            </button>
+                        </div>
+
+                        <div className="calendar-container">
+                            <Calendar onChange={onChange} value={date} locale="es-MX" />
+                        </div>
+                    </>
+                )}
+
+                {vistaActiva === "pacientes" && (
+                    pacienteSeleccionado ? (
+                        <PerfilPaciente paciente={pacienteSeleccionado} onVolver={() => setPacienteSeleccionado(null)} />
+                    ) : (
+                        <Pacientes
+                            onAltaPaciente={handleAltaPaciente}
+                            onVerPerfil={setPacienteSeleccionado}
+                        />
+                    )
+                )}
+
+                {vistaActiva === "altaPaciente" && (
+                    <AltaPacienteForm onCancelar={() => setVistaActiva("dashboard")} />
+                )}
+
+
+
+                {["smae", "material", "dietas", "calculo", "menu"].includes(vistaActiva) && (
+                    <div style={{ padding: '2rem', fontSize: '1.2rem' }}>
+                        <p>Sección "{vistaActiva}" en construcción...</p>
                     </div>
-                </div>
-
-                <div className="consultation-bar">
-                    <button className="new-consultation-btn" onClick={handleGenerarConsulta}>Generar Nueva Consulta</button>
-                    {/* <div className="month-year">{monthYear}</div> */}
-                    <button className="add-patient-btn" onClick={handleAltaPaciente}>Alta de Paciente</button>
-                </div>
-
-                <div className="calendar-container">
-                    <Calendar
-                        onChange={onChange}
-                        value={date}
-                        locale="es-MX"
-                    />
-                </div>
-
-                {/* Modal emergente */}
-                <ModalEmergente mostrar={mostrarModal} cerrar={cerrarModal} />
+                )}
             </div>
+
+            <ModalEmergente mostrar={mostrarModal} cerrar={cerrarModal} />
         </div>
     );
 };
