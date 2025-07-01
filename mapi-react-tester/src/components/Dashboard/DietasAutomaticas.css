@@ -1,0 +1,73 @@
+/* src/components/DietasAutomaticas.css */
+.dietas-automaticas-container {
+    padding: 30px;
+    background-color: var(--beige);
+    color: var(--dark-moss-green);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Para permitir el scroll si hay muchas dietas */
+}
+
+.dietas-automaticas-title {
+    color: var(--dark-moss-green);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: left;
+}
+
+.dietas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 3 columnas en pantallas grandes, responsivo */
+    gap: 25px; /* Espacio entre las tarjetas */
+    flex-grow: 1;
+    justify-content: center; /* Centra las tarjetas si no llenan la última fila */
+    align-items: start; /* Alinea las tarjetas al inicio de cada fila */
+}
+
+.dieta-card {
+    background-color: #e6edd9; /* Color de fondo de la tarjeta similar a la imagen */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    text-align: center;
+    min-height: 150px; /* Altura mínima para cada tarjeta */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.dieta-card:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el mouse */
+}
+
+.dieta-kcal {
+    color: var(--dark-moss-green);
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dieta-description {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+/* Media query para asegurar que se vean 3 columnas en pantallas suficientemente grandes */
+@media (min-width: 992px) {
+    .dietas-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Media query para pantallas más pequeñas, una columna */
+@media (max-width: 768px) {
+    .dietas-grid {
+        grid-template-columns: 1fr;
+    }
+}

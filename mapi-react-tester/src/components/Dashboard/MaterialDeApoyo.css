@@ -1,0 +1,84 @@
+/* src/components/MaterialDeApoyo.css */
+.material-de-apoyo-container {
+    padding: 30px;
+    background-color: var(--beige);
+    color: var(--dark-moss-green);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.material-de-apoyo-title {
+    color: var(--dark-moss-green);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: left;
+}
+
+.material-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    flex-grow: 1;
+}
+
+.material-card {
+    background-color: #e6edd9; /* Un tono verde claro/beige similar al de la imagen */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+}
+
+.card-title {
+    color: var(--dark-moss-green);
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-description {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.card-format {
+    color: #777;
+    font-size: 0.85em;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.card-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.card-icons .icon {
+    width: 30px; /* Tamaño de los iconos */
+    height: 30px;
+    cursor: pointer;
+    color: #7e8c72; /* CAMBIO: Color similar al de los iconos de la imagen (un verde/gris oscuro) */
+    /* Eliminado: filter: brightness(...) */
+}
+
+/* Consideraciones para pantallas pequeñas */
+@media (max-width: 768px) {
+    .material-grid {
+        grid-template-columns: 1fr;
+    }
+}

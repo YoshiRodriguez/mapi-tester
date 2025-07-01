@@ -1,0 +1,74 @@
+/* src/components/Smae.css */
+.smae-container {
+    padding: 20px;
+    background-color: var(--beige);
+    color: var(--dark-moss-green);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.smae-title {
+    color: var(--dark-moss-green);
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: left;
+}
+
+.smae-grid {
+    display: grid;
+    /* CAMBIO: Define las columnas para pegar las dos primeras y alinear la tercera */
+    grid-template-columns: auto auto 1fr; /* Columna 1 y 2 se ajustan a su contenido, la 3ra toma el espacio restante */
+    gap: 0px 20px; /* CAMBIO: 0px de espacio vertical (entre filas), 20px de espacio horizontal (entre columnas) */
+    flex-grow: 1;
+}
+
+.smae-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Mantiene la alineación de la sección a la izquierda */
+}
+
+.smae-section-title {
+    color: var(--dark-moss-green);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.smae-buttons-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* Sigue centrando los botones dentro de su columna */
+}
+
+.smae-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px; /* CAMBIO: Aumenta el padding para hacer los botones más grandes */
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em; /* CAMBIO: Aumenta el tamaño de la fuente si lo deseas */
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 90%; /* CAMBIO: Aumenta el ancho a un 90% */
+    max-width: 280px; /* CAMBIO: Aumenta el ancho máximo si lo consideras necesario */
+}
+
+.smae-button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajustes específicos para la columna derecha (tercera columna) */
+.smae-section:nth-child(3) .smae-buttons-column {
+    align-items: flex-start; /* CAMBIO: Alinea los botones de la tercera columna a la izquierda */
+}
+
+.smae-right-column { /* Puedes mantener esta clase para mayor claridad, aunque el nth-child(3) es más específico */
+    align-items: flex-start; /* Asegura que si esta clase se usa en otros lugares, también se alinee a la izquierda */
+    justify-content: flex-start;
+    height: 100%;
+}

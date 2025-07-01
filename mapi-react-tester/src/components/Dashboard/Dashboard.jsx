@@ -5,12 +5,21 @@ import './Dashboard.css';
 import './Banner.css';
 import './ConsultationBar.css';
 import 'react-calendar/dist/Calendar.css';
-import './CalendarCustom.css';
 import Calendar from 'react-calendar';
-import ModalEmergente from './ModalEmergente'; // <-- Componente de modal
+import './CalendarCustom.css';
+import Smae from './Smae';
+import './Smae.css';
+import MaterialDeApoyo from './MaterialDeApoyo.jsx';
+import './MaterialDeApoyo.css';
+import ModalEmergente from './ModalEmergente';
 import Pacientes from './Pacientes.jsx';
 import PerfilPaciente from './PerfilPaciente';
 import AltaPacienteForm from './AltaPacienteForm';
+import DietasAutomaticas from './DietasAutomaticas';
+import './DietasAutomaticas.css'; 
+import CalculoCreacionMenu from './CalculoCreacionMenu';
+import './CalculoCreacionMenu.css'; 
+
 
 
 console.log("¿Qué es Pacientes?", Pacientes);
@@ -54,8 +63,7 @@ const Dashboard = () => {
                     <li onClick={() => setVistaActiva("smae")}>SMAE</li>
                     <li onClick={() => setVistaActiva("material")}>Material De Apoyo</li>
                     <li onClick={() => setVistaActiva("dietas")}>Dietas Automáticas</li>
-                    <li onClick={() => setVistaActiva("calculo")}>Cálculo Dietético</li>
-                    <li onClick={() => setVistaActiva("menu")}>Creación de Menú</li>
+                    <li onClick={() => setVistaActiva("calculo-menu")}>Cálculo y Creación de Menú</li>
                 </ul>
                 <div className="dashboard-sidebar-bottom">
                     <div className="configuracion">Configuración</div>
@@ -111,13 +119,32 @@ const Dashboard = () => {
                     <AltaPacienteForm onCancelar={() => setVistaActiva("dashboard")} />
                 )}
 
+                {vistaActiva === "smae" && (
+                    <Smae /> // Renderiza el componente SmaeContent cuando vistaActiva es "smae"
+                )}
 
+                {vistaActiva === "material" && (
+                    <MaterialDeApoyo/> // Renderiza el componente SmaeContent cuando vistaActiva es "smae"
+                )}
 
-                {["smae", "material", "dietas", "calculo", "menu"].includes(vistaActiva) && (
+                {vistaActiva === "dietas" && ( // <-- Renderiza el nuevo componente aquí
+                    <DietasAutomaticas />
+                )}
+
+                {/* CAMBIO: Renderizar el nuevo componente unificado */}
+                {vistaActiva === "calculo-menu" && (
+                    <CalculoCreacionMenu />
+                )}
+
+                {/* Eliminar o adaptar esta sección si ya no hay más "en construcción" */}
+                {/* Por ahora, mantengo las vistas que no unificamos explícitamente */}
+                {/* Si "calculo" y "menu" solo se usan aquí, puedes quitarlos de la condición */}
+                {/* ["calculo", "menu"].includes(vistaActiva) && (
                     <div style={{ padding: '2rem', fontSize: '1.2rem' }}>
                         <p>Sección "{vistaActiva}" en construcción...</p>
                     </div>
-                )}
+                )*/}
+
             </div>
 
             <ModalEmergente mostrar={mostrarModal} cerrar={cerrarModal} />
